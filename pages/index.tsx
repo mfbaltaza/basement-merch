@@ -12,11 +12,10 @@ import cap from "@assets/products/cap.png";
 const Home: NextPage = () => {
   return (
     <div className="">
-      {/* Nav */}
-      <header className="lg:w-auto mx-8 mt-8 flex justify-between max-h-max">
+      <header className="mx-8 mt-8 flex justify-between max-h-max">
         <Image alt="Basement" src={logo} />
         <Image alt="High Definition" src={hd4k} />
-        <button className="border-2 rounded-full px-lg py-xs">Cart (0)</button>
+        <button className="border-2 h-max rounded-full px-lg py-xs">Cart (0)</button>
       </header>
       <main>
         {/* Hero Section */}
@@ -63,7 +62,6 @@ const Home: NextPage = () => {
             </div>
           </div>
         </section>
-        {/* Footer */}
         <footer className="mx-8 mb-8 flex">
           <Image alt="Wear Everyday" src={footer} />
         </footer>
