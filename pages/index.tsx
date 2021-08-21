@@ -13,15 +13,15 @@ const Home: NextPage = () => {
   return (
     <div className="">
       {/* Nav */}
-      <header className="w-auto mx-8 mt-8 flex justify-between max-h-max">
-        <Image src={logo} />
-        <Image src={hd4k} />
+      <header className="lg:w-auto mx-8 mt-8 flex justify-between max-h-max">
+        <Image alt="Basement" src={logo} />
+        <Image alt="High Definition" src={hd4k} />
         <button className="border-2 rounded-full px-lg py-xs">Cart (0)</button>
       </header>
       <main>
         {/* Hero Section */}
         <div className="w-auto mx-8 my-11">
-          <Image src={hero} />
+          <Image alt="Basement Supply" src={hero} />
         </div>
         {/* Rolling Banner Section */}
         <div className="border-t-2 border-b-2 py-md mb-24 mt-12 flex justify-around">
@@ -34,10 +34,10 @@ const Home: NextPage = () => {
           </p>
         </div>
         {/* Products Section */}
-        <section className="w-auto mx-8 flex gap-x-8 mb-12 flex-grow ">
+        <section className="w-auto mx-8 flex flex-col md:flex-row gap-x-8 mb-12 flex-grow ">
           <div className="product-1">
             <div className="bg-gradient-to-b from-black to-newDark border-b-4 min-width-xs max-w-lg">
-              <Image src={shirt} />
+              <Image alt="Basement Shirt" src={shirt} />
             </div>
             <div className="flex justify-between py-sm text-center">
               <p className="text-xl font-bold">Black t-shirt</p>
@@ -46,7 +46,7 @@ const Home: NextPage = () => {
           </div>
           <div className="product-2">
             <div className="bg-gradient-to-b from-black to-newDark border-b-4 min-width-xs max-w-lg">
-              <Image src={hoodie} />
+              <Image alt="Basement Hoodie" src={hoodie} />
             </div>
             <div className="flex justify-between py-sm text-center">
               <p className="text-xl font-bold">Black hoodie</p>
@@ -55,7 +55,7 @@ const Home: NextPage = () => {
           </div>
           <div className="product-3">
             <div className="bg-gradient-to-b from-black to-newDark border-b-4 min-width-xs max-w-lg">
-              <Image src={cap} />
+              <Image alt="Basement Cap" src={cap} />
             </div>
             <div className="flex justify-between py-sm text-center">
               <p className="text-xl font-bold">Black cap</p>
@@ -65,7 +65,7 @@ const Home: NextPage = () => {
         </section>
         {/* Footer */}
         <footer className="mx-8 mb-8 flex">
-          <Image src={footer} />
+          <Image alt="Wear Everyday" src={footer} />
         </footer>
       </main>
     </div>
