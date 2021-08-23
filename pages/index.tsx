@@ -2,6 +2,7 @@ import type {NextPage} from "next";
 import Image from "next/image";
 import {useState} from "react";
 
+import addToCart from "@assets/addtocard.svg";
 import logo from "@assets/logo.svg";
 import altlogo from "@assets/altlogo.svg";
 import hero from "@assets/header.svg";
@@ -23,7 +24,7 @@ const Home: NextPage = () => {
   }
 
   return (
-    <div className="">
+    <div className="overflow-x-hidden">
       <header className="mx-8 mt-8 flex justify-between max-h-max">
         <div className="hidden md:block">
           <Image alt="Basement" src={logo} />
@@ -52,10 +53,14 @@ const Home: NextPage = () => {
           </p>
         </div>
         {/* Products Section */}
-        <section className="w-auto mx-8 flex flex-col md:flex-row gap-x-8 mb-12 flex-grow ">
+
+        <section className="w-auto mx-8 flex flex-col md:flex-row gap-x-8 mb-12 flex-grow">
           <div className="product-1" onClick={onClick}>
-            <div className="bg-gradient-to-b from-black to-newDark border-b-4 min-width-xs max-w-lg">
+            <div className="cursor-pointer group bg-gradient-to-b from-black to-newDark border-b-4 min-width-xs max-w-lg relative">
               <Image alt="Basement Shirt" src={shirt} />
+              <div className="opacity-0 group-hover:opacity-100 absolute bottom-56 right-7 sm:left-1/4 ">
+                <Image alt="Add To Cart" src={addToCart} />
+              </div>
             </div>
             <div className="flex justify-between py-sm text-center">
               <p className="text-xl font-bold">Black t-shirt</p>
@@ -63,8 +68,11 @@ const Home: NextPage = () => {
             </div>
           </div>
           <div className="product-2" onClick={onClick}>
-            <div className="bg-gradient-to-b from-black to-newDark border-b-4 min-width-xs max-w-lg">
+            <div className="cursor-pointer group relative bg-gradient-to-b from-black to-newDark border-b-4 min-width-xs max-w-lg">
               <Image alt="Basement Hoodie" src={hoodie} />
+              <div className="opacity-0 group-hover:opacity-100 absolute bottom-56 right-7 sm:left-1/4 ">
+                <Image alt="Add To Cart" src={addToCart} />
+              </div>
             </div>
             <div className="flex justify-between py-sm text-center">
               <p className="text-xl font-bold">Black hoodie</p>
@@ -72,8 +80,11 @@ const Home: NextPage = () => {
             </div>
           </div>
           <div className="product-3" onClick={onClick}>
-            <div className="bg-gradient-to-b from-black to-newDark border-b-4 min-width-xs max-w-lg">
+            <div className="cursor-pointer group relative bg-gradient-to-b from-black to-newDark border-b-4 min-width-xs max-w-lg">
               <Image alt="Basement Cap" src={cap} />
+              <div className="opacity-0 group-hover:opacity-100 absolute bottom-56 right-7 sm:left-1/4 ">
+                <Image alt="Add To Cart" src={addToCart} />
+              </div>
             </div>
             <div className="flex justify-between py-sm text-center">
               <p className="text-xl font-bold">Black cap</p>
