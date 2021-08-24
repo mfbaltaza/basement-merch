@@ -3,13 +3,24 @@ import Image from "next/image";
 
 import {Product} from "../../product/types";
 
-import shirt from "@assets/products/shirt.png";
-
 interface Props {
   product: Product;
+  cartItems: Product[];
+  setCartItems: any;
 }
 
-const CartItem: React.FC<Props> = ({product}) => {
+const CartItem: React.FC<Props> = ({product, cartItems, setCartItems}) => {
+  const handleRemove = () => {
+    const exist = cartItems.find((x) => x.id === product.id);
+
+    if (exist?.qty === 1) {
+      setCartItems(cartItems.filter((x) => x.id !== product.id));
+    } else
+      setCartItems(
+        cartItems.map((x) => (x.id === product.id ? {...exist, qty: exist?.qty ?? -1} : x)),
+      );
+  };
+
   return (
     <div className="border w-full min-h-full flex">
       {/* Hard-coded Item */}
@@ -28,7 +39,10 @@ const CartItem: React.FC<Props> = ({product}) => {
           <p className="text-2xl font-bold">{product.description}</p>
         </div>
         <div className="flex flex-col-reverse">
-          <p>{`Quantity 0`}</p>
+          <p>{`Quantity ${product.qty}`}</p>
+          <p className="cursor-pointer" onClick={handleRemove}>
+            Remove
+          </p>
         </div>
       </div>
     </div>

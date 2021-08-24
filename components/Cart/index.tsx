@@ -11,11 +11,10 @@ import checkout from "@assets/checkout.svg";
 interface Props {
   cartItems: Product[];
   setCartVisibility: any;
+  setCartItems: any;
 }
 
-const Cart: React.FC<Props> = ({cartItems, setCartVisibility}) => {
-  console.log(cartItems);
-
+const Cart: React.FC<Props> = ({cartItems, setCartVisibility, setCartItems}) => {
   return (
     <div className="bg-smoke-darkest bg-opacity-50 z-50 absolute inset-0 flex justify-end">
       <div className="bg-smoke-darkest h-modal max-w-xl max-h-96 flex flex-wrap justify-end mr-4 items-end overflow-scroll">
@@ -27,7 +26,12 @@ const Cart: React.FC<Props> = ({cartItems, setCartVisibility}) => {
         <Image alt="Your Cart" src={yourcartlarge} />
         {cartItems.length === 0 && <p className="text-4xl">Cart is Empty</p>}
         {cartItems.map((product) => (
-          <CartItem key={product.id} product={product} />
+          <CartItem
+            key={product.id}
+            cartItems={cartItems}
+            product={product}
+            setCartItems={setCartItems}
+          />
         ))}
         {/* <div>
           {products.map((product) => (
@@ -46,7 +50,7 @@ const Cart: React.FC<Props> = ({cartItems, setCartVisibility}) => {
         <div className="border h-24 flex">
           <div
             className="self-center px-lg cursor-pointer"
-            onClick={() => console.log("Now you don't got money")}
+            onClick={() => console.log(`Now you don't got money, `, cartItems)}
           >
             <Image alt="Checkout" src={checkout} />
           </div>
