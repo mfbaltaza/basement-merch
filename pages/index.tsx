@@ -90,8 +90,8 @@ const Home: NextPage = () => {
               </div>
             </div>
             <div className="flex justify-between py-sm text-center">
-              <p className="text-xl font-bold">Black t-shirt</p>
-              <p className="text-xl font-bold">$7.95</p>
+              <p className="text-xl font-bold">{`${products[0].name}`}</p>
+              <p className="text-xl font-bold">{`$${products[1].price}`}</p>
             </div>
           </div>
           <div className="product-2" onClick={() => {
@@ -107,8 +107,8 @@ const Home: NextPage = () => {
               </div>
             </div>
             <div className="flex justify-between py-sm text-center">
-              <p className="text-xl font-bold">Black hoodie</p>
-              <p className="text-xl font-bold">$7.95</p>
+              <p className="text-xl font-bold">{`${products[1].name}`}</p>
+              <p className="text-xl font-bold">{`$${products[1].price}`}</p>
             </div>
           </div>
           <div className="product-3" onClick={() => {
@@ -124,8 +124,8 @@ const Home: NextPage = () => {
               </div>
             </div>
             <div className="flex justify-between py-sm text-center">
-              <p className="text-xl font-bold">Black cap</p>
-              <p className="text-xl font-bold">$7.95</p>
+              <p className="text-xl font-bold">{`${products[2].name}`}</p>
+              <p className="text-xl font-bold">{`$${products[2].price}`}</p>
             </div>
           </div>
         </section>

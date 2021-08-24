@@ -43,7 +43,7 @@ const CartItem: React.FC<Props> = ({product, cartItems, setCartItems}) => {
           <p className="cursor-pointer" onClick={handleRemove}>
             Remove
           </p>
-          <p className="text-5xl">${product.price}</p>
+          <p className="text-5xl">${product.price * product.qty}</p>
         </div>
       </div>
     </div>
