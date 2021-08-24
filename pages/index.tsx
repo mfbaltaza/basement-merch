@@ -32,15 +32,9 @@ const Home: NextPage = () => {
     "qty": 1,
   },]);
 
-  const [cartCount, setCartCount] = useState(0);
   const [cartVisibility, setCartVisibility] = useState(false);
 
   const [...products] = data;
-
-  function onClick() {
-    // setCartCount((prev) => setCartCount(prev + 1));
-    console.log("Working");
-  }
 
   return (
     <div className="overflow-x-hidden">

@@ -17,7 +17,7 @@ const CartItem: React.FC<Props> = ({product, cartItems, setCartItems}) => {
       setCartItems(cartItems.filter((x) => x.id !== product.id));
     } else
       setCartItems(
-        cartItems.map((x) => (x.id === product.id ? {...exist, qty: exist?.qty - 1} : x)),
+        cartItems.map((x) => (x.id === product.id ? {...exist, qty: exist?.qty ?? -1} : x)),
       );
   };
 
