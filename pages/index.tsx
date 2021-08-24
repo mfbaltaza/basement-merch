@@ -48,13 +48,10 @@ const Home: NextPage = () => {
           <Image alt="Basement Supply" src={hero} />
         </div>
         {/* Rolling Banner Section */}
-        <div className="border-t-2 border-b-2 py-md mb-24 mt-12 flex justify-around">
-          <p className="flex justify-center text-3xl font-bold px-md animate-ticker">
+        <div className="border-t-2 border-b-2 py-md mb-24 mt-12 max-h-16 flex justify-around">
+          <p className="animate-ticker flex justify-center text-3xl font-bold px-md w-full whitespace-nowrap">
             A man can't have enough basement. swag
-          </p>
-          <div className="container h-0 w-8 border-4 self-center animate-ticker" />
-          <p className="flex justify-center text-3xl font-bold px-md animate-ticker">
-            A man can't have enough basement. swag 
+          <div className="container h-0 w-8 mx-3 border-4 self-center "></div> 
           </p>
         </div>
         {/* Products Section */}
