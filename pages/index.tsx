@@ -27,12 +27,12 @@ const Home: NextPage = () => {
   return (
     <div className="overflow-x-hidden">
       {cartVisibility && <Cart productName='Gang Ties' setCartVisibility={setCartVisibility} />}
-      <header className="mx-8 mt-8 flex justify-between max-h-max">
+      <nav className="mx-8 mt-8 flex justify-between">
         <div className="hidden md:block">
           <Image alt="Basement" src={logo} />
         </div>
-        <div className="md:hidden">
-          <Image alt="Basement" src={altlogo} />
+        <div className="h-8 md:hidden">
+          <Image alt="Basement" src={altlogo} height="40" width="40" />
         </div>
         <div className="hidden md:block">
           <Image alt="High Definition" src={hd4k} />
@@ -41,7 +41,7 @@ const Home: NextPage = () => {
                 onClick={() => setCartVisibility(true)}>
                   Cart ({cartCount})
         </button>
-      </header>
+      </nav>
       <main>
         {/* Hero Section */}
         <div className="w-auto mx-8 my-11">
