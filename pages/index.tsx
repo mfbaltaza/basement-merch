@@ -2,6 +2,8 @@ import type {NextPage} from "next";
 import Image from "next/image";
 import {useState} from "react";
 
+import {Product} from "../product/types";
+
 import data from "product/mock.json";
 import Cart from "components/Cart";
 import addToCart from "@assets/addtocard.svg";
@@ -17,6 +19,18 @@ import cap from "@assets/products/cap.png";
 /* eslint-disable */
 
 const Home: NextPage = () => {
+  const [cartItems, setCartItems] = useState([{
+    "id": "black-tshirt",
+    "image": "/products/shirt.png",
+    "price": 7.95,
+    "name": "Black t-shirt",
+    "description": "Unisex Basic Softstyle T-Shirt",
+    "options": [{
+      "label": "size",
+      "values": ["S", "M", "L", "XL"]
+    }]
+  },]);
+
   const [cartCount, setCartCount] = useState(0);
   const [cartVisibility, setCartVisibility] = useState(false);
 
@@ -29,7 +43,7 @@ const Home: NextPage = () => {
 
   return (
     <div className="overflow-x-hidden">
-      {cartVisibility && <Cart setCartVisibility={setCartVisibility} products={products} />}
+      {cartVisibility && <Cart setCartVisibility={setCartVisibility} cartItems={cartItems} />}
       <nav className="mx-8 mt-8 flex justify-between">
         <div className="hidden md:block">
           <Image alt="Basement" src={logo} />
@@ -42,7 +56,7 @@ const Home: NextPage = () => {
         </div>
         <button className="border-2 h-max rounded-full px-lg py-xs"
                 onClick={() => setCartVisibility(true)}>
-                  Cart ({cartCount})
+                  Cart ({cartItems.length})
         </button>
       </nav>
       <main>
@@ -80,7 +94,12 @@ const Home: NextPage = () => {
               <p className="text-xl font-bold">$7.95</p>
             </div>
           </div>
-          <div className="product-2" onClick={onClick}>
+          <div className="product-2" onClick={() => {
+          const exist = cartItems.find(x => x.id === products[1].id)
+          if (exist) {
+            console.log("There is already merch champ");
+          } else { setCartItems([...cartItems, {...products[1], qty: 1}]) }
+        }}>
             <div className="cursor-pointer group relative bg-gradient-to-b from-black to-newDark border-b-4 min-width-xs max-w-lg">
               <Image alt="Basement Hoodie" src={hoodie} />
               <div className="opacity-0 group-hover:opacity-100 absolute bottom-56 right-7 sm:left-1/4 ">
@@ -92,7 +111,12 @@ const Home: NextPage = () => {
               <p className="text-xl font-bold">$7.95</p>
             </div>
           </div>
-          <div className="product-3" onClick={onClick}>
+          <div className="product-3" onClick={() => {
+            const exist = cartItems.find(x => x.id === products[2].id)
+            if (exist) {
+              console.log("There is already merch champ");
+            } else { setCartItems([...cartItems, {...products[2], qty: 1}]) }
+          }}>
             <div className="cursor-pointer group relative bg-gradient-to-b from-black to-newDark border-b-4 min-width-xs max-w-lg">
               <Image alt="Basement Cap" src={cap} />
               <div className="opacity-0 group-hover:opacity-100 absolute bottom-56 right-7 sm:left-1/4 ">

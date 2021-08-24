@@ -9,12 +9,12 @@ import yourcartlarge from "@assets/yourcartlarge.svg";
 import checkout from "@assets/checkout.svg";
 
 interface Props {
-  products: Product[];
+  cartItems: Product[];
   setCartVisibility: any;
 }
 
-const Cart: React.FC<Props> = ({products, setCartVisibility}) => {
-  console.log(products);
+const Cart: React.FC<Props> = ({cartItems, setCartVisibility}) => {
+  console.log(cartItems);
 
   return (
     <div className="bg-smoke-darkest bg-opacity-50 z-50 absolute inset-0 flex justify-end">
@@ -25,7 +25,10 @@ const Cart: React.FC<Props> = ({products, setCartVisibility}) => {
           </p>
         </div>
         <Image alt="Your Cart" src={yourcartlarge} />
-        <CartItem />
+        {cartItems.length === 0 && <p className="text-4xl">Cart is Empty</p>}
+        {cartItems.map((product) => (
+          <CartItem key={product.id} product={product} />
+        ))}
         {/* <div>
           {products.map((product) => (
             <Image
