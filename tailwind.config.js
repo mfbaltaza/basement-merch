@@ -21,6 +21,7 @@ module.exports = {
       md: "16px",
       lg: "24px",
       xl: "48px",
+      modal: "211px",
     },
     animation: {
       "spin-slow": "spin 12s linear infinite",

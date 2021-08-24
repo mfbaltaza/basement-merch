@@ -2,6 +2,7 @@ import type {NextPage} from "next";
 import Image from "next/image";
 import {useState} from "react";
 
+import Cart from "components/Cart";
 import addToCart from "@assets/addtocard.svg";
 import logo from "@assets/logo.svg";
 import altlogo from "@assets/altlogo.svg";
@@ -20,11 +21,11 @@ const Home: NextPage = () => {
   function onClick() {
     // setCartCount((prev) => setCartCount(prev + 1));
     console.log("Working");
-    
   }
 
   return (
     <div className="overflow-x-hidden">
+      <Cart productName='Gang Ties' />
       <header className="mx-8 mt-8 flex justify-between max-h-max">
         <div className="hidden md:block">
           <Image alt="Basement" src={logo} />
