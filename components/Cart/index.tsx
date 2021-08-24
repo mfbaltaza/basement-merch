@@ -3,6 +3,8 @@ import Image from "next/image";
 
 import {Product} from "../../product/types";
 
+import CartItem from "./CartItem";
+
 import yourcartlarge from "@assets/yourcartlarge.svg";
 import checkout from "@assets/checkout.svg";
 
@@ -16,13 +18,14 @@ const Cart: React.FC<Props> = ({products, setCartVisibility}) => {
 
   return (
     <div className="bg-smoke-darkest bg-opacity-50 z-50 absolute inset-0 flex justify-end">
-      <div className="bg-smoke-darkest h-modal max-w-xl max-h-96 flex flex-wrap justify-end mr-4 items-end">
-        <div className="max-h-px pt-md">
+      <div className="bg-smoke-darkest h-modal max-w-xl max-h-96 flex flex-wrap justify-end mr-4 items-end overflow-scroll">
+        <div className="pt-md pb-md">
           <p className="font-bold text-2xl cursor-pointer" onClick={() => setCartVisibility(false)}>
             CLOSE
           </p>
         </div>
         <Image alt="Your Cart" src={yourcartlarge} />
+        <CartItem />
         {/* <div>
           {products.map((product) => (
             <Image
@@ -34,11 +37,14 @@ const Cart: React.FC<Props> = ({products, setCartVisibility}) => {
             />
           ))}
         </div> */}
-        <div className="border min-w-max h-24">
-          <h3 className="text-3xl font-bold">{`TOTAL: $2300`}</h3>
+        <div className="border h-24 flex">
+          <h3 className="text-3xl font-bold self-center ml-8 mr-8">{`TOTAL: $2300`}</h3>
         </div>
         <div className="border h-24 flex">
-          <div className="self-center px-lg">
+          <div
+            className="self-center px-lg cursor-pointer"
+            onClick={() => console.log("Now you don't got money")}
+          >
             <Image alt="Checkout" src={checkout} />
           </div>
         </div>
