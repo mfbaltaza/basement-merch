@@ -15,6 +15,8 @@ interface Props {
 }
 
 const Cart: React.FC<Props> = ({cartItems, setCartVisibility, setCartItems}) => {
+  const itemsPrice = cartItems.reduce((a, c) => a + c.price * c.qty, 0);
+
   return (
     <div className="bg-smoke-darkest bg-opacity-50 z-50 absolute inset-0 flex justify-end">
       <div className="bg-smoke-darkest h-modal max-w-xl max-h-96 flex flex-wrap justify-end mr-4 items-end overflow-scroll">
@@ -45,7 +47,7 @@ const Cart: React.FC<Props> = ({cartItems, setCartVisibility, setCartItems}) => 
           ))}
         </div> */}
         <div className="border h-24 flex">
-          <h3 className="text-3xl font-bold self-center ml-8 mr-8">{`TOTAL: $2300`}</h3>
+          <h3 className="text-3xl font-bold self-center ml-8 mr-8">{`TOTAL: $${itemsPrice}`}</h3>
         </div>
         <div className="border h-24 flex">
           <div
