@@ -82,7 +82,12 @@ const Home: NextPage = () => {
         
         {/* Products Section */}
         <section className="w-auto mx-8 flex flex-col md:flex-row gap-x-8 mb-12 flex-grow">
-          <div className="product-1" onClick={onClick}>
+          <div className="product-1" onClick={() => {
+            const exist = cartItems.find(x => x.id === products[1].id)
+            if (exist) {
+              console.log("There is already merch champ");
+            } else { setCartItems([...cartItems, {...products[1]}]) }
+          }}>
             <div className="cursor-pointer group bg-gradient-to-b from-black to-newDark border-b-4 min-width-xs max-w-lg relative">
               <Image alt="Basement Shirt" src={shirt} />
               <div className="opacity-0 group-hover:opacity-100 absolute bottom-56 right-7 sm:left-1/4 ">
@@ -98,7 +103,7 @@ const Home: NextPage = () => {
           const exist = cartItems.find(x => x.id === products[1].id)
           if (exist) {
             console.log("There is already merch champ");
-          } else { setCartItems([...cartItems, {...products[1], qty: 1}]) }
+          } else { setCartItems([...cartItems, {...products[1]}]) }
         }}>
             <div className="cursor-pointer group relative bg-gradient-to-b from-black to-newDark border-b-4 min-width-xs max-w-lg">
               <Image alt="Basement Hoodie" src={hoodie} />
@@ -115,7 +120,7 @@ const Home: NextPage = () => {
             const exist = cartItems.find(x => x.id === products[2].id)
             if (exist) {
               console.log("There is already merch champ");
-            } else { setCartItems([...cartItems, {...products[2], qty: 1}]) }
+            } else { setCartItems([...cartItems, {...products[2]}]) }
           }}>
             <div className="cursor-pointer group relative bg-gradient-to-b from-black to-newDark border-b-4 min-width-xs max-w-lg">
               <Image alt="Basement Cap" src={cap} />
