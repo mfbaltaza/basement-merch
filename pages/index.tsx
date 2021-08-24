@@ -28,7 +28,8 @@ const Home: NextPage = () => {
     "options": [{
       "label": "size",
       "values": ["S", "M", "L", "XL"]
-    }]
+    }],
+    "qty": 1,
   },]);
 
   const [cartCount, setCartCount] = useState(0);
@@ -43,7 +44,7 @@ const Home: NextPage = () => {
 
   return (
     <div className="overflow-x-hidden">
-      {cartVisibility && <Cart setCartVisibility={setCartVisibility} cartItems={cartItems} />}
+      {cartVisibility && <Cart setCartVisibility={setCartVisibility} cartItems={cartItems} setCartItems={setCartItems} />}
       <nav className="mx-8 mt-8 flex justify-between">
         <div className="hidden md:block">
           <Image alt="Basement" src={logo} />
@@ -82,7 +83,12 @@ const Home: NextPage = () => {
         
         {/* Products Section */}
         <section className="w-auto mx-8 flex flex-col md:flex-row gap-x-8 mb-12 flex-grow">
-          <div className="product-1" onClick={onClick}>
+          <div className="product-1" onClick={() => {
+            const exist = cartItems.find(x => x.id === products[0].id)
+            if (exist) {
+              setCartItems(cartItems.map((x) => x.id === products[0].id ? {...exist, qty: exist.qty +1} : x))
+            } else { setCartItems([...cartItems, {...products[0], qty: 1}]) }
+          }}>
             <div className="cursor-pointer group bg-gradient-to-b from-black to-newDark border-b-4 min-width-xs max-w-lg relative">
               <Image alt="Basement Shirt" src={shirt} />
               <div className="opacity-0 group-hover:opacity-100 absolute bottom-56 right-7 sm:left-1/4 ">
@@ -97,7 +103,7 @@ const Home: NextPage = () => {
           <div className="product-2" onClick={() => {
           const exist = cartItems.find(x => x.id === products[1].id)
           if (exist) {
-            console.log("There is already merch champ");
+            setCartItems(cartItems.map((x) => x.id === products[0].id ? {...exist, qty: exist.qty +1} : x))
           } else { setCartItems([...cartItems, {...products[1], qty: 1}]) }
         }}>
             <div className="cursor-pointer group relative bg-gradient-to-b from-black to-newDark border-b-4 min-width-xs max-w-lg">
@@ -114,7 +120,7 @@ const Home: NextPage = () => {
           <div className="product-3" onClick={() => {
             const exist = cartItems.find(x => x.id === products[2].id)
             if (exist) {
-              console.log("There is already merch champ");
+              setCartItems(cartItems.map((x) => x.id === products[0].id ? {...exist, qty: exist.qty +1} : x))
             } else { setCartItems([...cartItems, {...products[2], qty: 1}]) }
           }}>
             <div className="cursor-pointer group relative bg-gradient-to-b from-black to-newDark border-b-4 min-width-xs max-w-lg">
