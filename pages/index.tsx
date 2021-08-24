@@ -78,17 +78,10 @@ const Home: NextPage = () => {
         {/* Products Section */}
         <section className="w-auto mx-8 flex flex-col md:flex-row gap-x-8 mb-12 flex-grow">
           <div className="product-1" onClick={() => {
-<<<<<<< HEAD
-            const exist = cartItems.find(x => x.id === products[1].id)
-            if (exist) {
-              console.log("There is already merch champ");
-            } else { setCartItems([...cartItems, {...products[1]}]) }
-=======
             const exist = cartItems.find(x => x.id === products[0].id)
             if (exist) {
               setCartItems(cartItems.map((x) => x.id === products[0].id ? {...exist, qty: exist.qty +1} : x))
             } else { setCartItems([...cartItems, {...products[0], qty: 1}]) }
->>>>>>> shoppingCart
           }}>
             <div className="cursor-pointer group bg-gradient-to-b from-black to-newDark border-b-4 min-width-xs max-w-lg relative">
               <Image alt="Basement Shirt" src={shirt} />
@@ -104,13 +97,8 @@ const Home: NextPage = () => {
           <div className="product-2" onClick={() => {
           const exist = cartItems.find(x => x.id === products[1].id)
           if (exist) {
-<<<<<<< HEAD
-            console.log("There is already merch champ");
-          } else { setCartItems([...cartItems, {...products[1]}]) }
-=======
             setCartItems(cartItems.map((x) => x.id === products[0].id ? {...exist, qty: exist.qty +1} : x))
           } else { setCartItems([...cartItems, {...products[1], qty: 1}]) }
->>>>>>> shoppingCart
         }}>
             <div className="cursor-pointer group relative bg-gradient-to-b from-black to-newDark border-b-4 min-width-xs max-w-lg">
               <Image alt="Basement Hoodie" src={hoodie} />
@@ -126,13 +114,8 @@ const Home: NextPage = () => {
           <div className="product-3" onClick={() => {
             const exist = cartItems.find(x => x.id === products[2].id)
             if (exist) {
-<<<<<<< HEAD
-              console.log("There is already merch champ");
-            } else { setCartItems([...cartItems, {...products[2]}]) }
-=======
               setCartItems(cartItems.map((x) => x.id === products[0].id ? {...exist, qty: exist.qty +1} : x))
             } else { setCartItems([...cartItems, {...products[2], qty: 1}]) }
->>>>>>> shoppingCart
           }}>
             <div className="cursor-pointer group relative bg-gradient-to-b from-black to-newDark border-b-4 min-width-xs max-w-lg">
               <Image alt="Basement Cap" src={cap} />
