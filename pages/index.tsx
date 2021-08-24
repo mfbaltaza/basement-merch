@@ -2,6 +2,7 @@ import type {NextPage} from "next";
 import Image from "next/image";
 import {useState} from "react";
 
+import data from "product/mock.json";
 import Cart from "components/Cart";
 import addToCart from "@assets/addtocard.svg";
 import logo from "@assets/logo.svg";
@@ -19,6 +20,8 @@ const Home: NextPage = () => {
   const [cartCount, setCartCount] = useState(0);
   const [cartVisibility, setCartVisibility] = useState(false);
 
+  const [...products] = data;
+
   function onClick() {
     // setCartCount((prev) => setCartCount(prev + 1));
     console.log("Working");
@@ -26,7 +29,7 @@ const Home: NextPage = () => {
 
   return (
     <div className="overflow-x-hidden">
-      {cartVisibility && <Cart productName='Gang Ties' setCartVisibility={setCartVisibility} />}
+      {cartVisibility && <Cart setCartVisibility={setCartVisibility} products={products} />}
       <nav className="mx-8 mt-8 flex justify-between">
         <div className="hidden md:block">
           <Image alt="Basement" src={logo} />
@@ -62,8 +65,8 @@ const Home: NextPage = () => {
             <div className="container h-0 w-8 mx-3 border-4 self-center "></div>
           </p>
       </div>
+        
         {/* Products Section */}
-
         <section className="w-auto mx-8 flex flex-col md:flex-row gap-x-8 mb-12 flex-grow">
           <div className="product-1" onClick={onClick}>
             <div className="cursor-pointer group bg-gradient-to-b from-black to-newDark border-b-4 min-width-xs max-w-lg relative">

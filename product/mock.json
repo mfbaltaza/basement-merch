@@ -1,6 +1,6 @@
 [{
   "id": "black-tshirt",
-  "image": "@assets/shirt.png",
+  "image": "/products/shirt.png",
   "price": 7.95,
   "name": "Black t-shirt",
   "options": [{
@@ -9,7 +9,7 @@
   }]
 }, {
   "id": "black-hoodie",
-  "image": "@assets/hoodie.png",
+  "image": "/products/hoodie.png",
   "price": 13,
   "name": "Black hoodie",
   "options": [{
@@ -18,7 +18,7 @@
   }]
 }, {
   "id": "black-cap",
-  "image": "@assets/cap.png",
+  "image": "/products/cap.png",
   "price": 23,
   "name": "Black cap",
   "options": [{
