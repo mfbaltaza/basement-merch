@@ -6,13 +6,16 @@ import yourcartlarge from "@assets/yourcartlarge.svg";
 interface Props {
   productName: String;
   price?: Number;
+  setCartVisibility?: any;
 }
 
-const Index: React.FC<Props> = ({productName}) => {
+const Index: React.FC<Props> = ({productName, setCartVisibility}) => {
   return (
     <div className="bg-smoke-darkest bg-opacity-50 z-50 absolute inset-0 flex justify-end items-start">
       <div className="bg-smoke-darkest h-modal max-w-xl max-h-96 flex">
-        <p className="font-bold text-2xl cursor-pointer">CLOSE</p>
+        <p className="font-bold text-2xl cursor-pointer" onClick={() => setCartVisibility(false)}>
+          CLOSE
+        </p>
         <Image alt="Your Cart" src={yourcartlarge} />
         <h4>Basement</h4>
         <p>Price </p>

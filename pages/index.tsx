@@ -17,6 +17,7 @@ import cap from "@assets/products/cap.png";
 
 const Home: NextPage = () => {
   const [cartCount, setCartCount] = useState(0);
+  const [cartVisibility, setCartVisibility] = useState(false);
 
   function onClick() {
     // setCartCount((prev) => setCartCount(prev + 1));
@@ -25,7 +26,7 @@ const Home: NextPage = () => {
 
   return (
     <div className="overflow-x-hidden">
-      <Cart productName='Gang Ties' />
+      {cartVisibility && <Cart productName='Gang Ties' setCartVisibility={setCartVisibility} />}
       <header className="mx-8 mt-8 flex justify-between max-h-max">
         <div className="hidden md:block">
           <Image alt="Basement" src={logo} />
@@ -36,7 +37,10 @@ const Home: NextPage = () => {
         <div className="hidden md:block">
           <Image alt="High Definition" src={hd4k} />
         </div>
-        <button className="border-2 h-max rounded-full px-lg py-xs">Cart ({cartCount})</button>
+        <button className="border-2 h-max rounded-full px-lg py-xs"
+                onClick={() => setCartVisibility(true)}>
+                  Cart ({cartCount})
+        </button>
       </header>
       <main>
         {/* Hero Section */}
