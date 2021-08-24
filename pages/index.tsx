@@ -91,13 +91,13 @@ const Home: NextPage = () => {
             </div>
             <div className="flex justify-between py-sm text-center">
               <p className="text-xl font-bold">{`${products[0].name}`}</p>
-              <p className="text-xl font-bold">{`$${products[1].price}`}</p>
+              <p className="text-xl font-bold">{`$${products[0].price}`}</p>
             </div>
           </div>
           <div className="product-2" onClick={() => {
           const exist = cartItems.find(x => x.id === products[1].id)
           if (exist) {
-            setCartItems(cartItems.map((x) => x.id === products[0].id ? {...exist, qty: exist.qty +1} : x))
+            setCartItems(cartItems.map((x) => x.id === products[1].id ? {...exist, qty: exist.qty +1} : x))
           } else { setCartItems([...cartItems, {...products[1], qty: 1}]) }
         }}>
             <div className="cursor-pointer group relative bg-gradient-to-b from-black to-newDark border-b-4 min-width-xs max-w-lg">
@@ -114,7 +114,7 @@ const Home: NextPage = () => {
           <div className="product-3" onClick={() => {
             const exist = cartItems.find(x => x.id === products[2].id)
             if (exist) {
-              setCartItems(cartItems.map((x) => x.id === products[0].id ? {...exist, qty: exist.qty +1} : x))
+              setCartItems(cartItems.map((x) => x.id === products[2].id ? {...exist, qty: exist.qty +1} : x))
             } else { setCartItems([...cartItems, {...products[2], qty: 1}]) }
           }}>
             <div className="cursor-pointer group relative bg-gradient-to-b from-black to-newDark border-b-4 min-width-xs max-w-lg">

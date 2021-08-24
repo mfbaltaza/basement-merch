@@ -13,6 +13,8 @@ const CartItem: React.FC<Props> = ({product, cartItems, setCartItems}) => {
   const handleRemove = () => {
     const exist = cartItems.find((x) => x.id === product.id);
 
+    console.log(exist);
+
     if (exist?.qty === 1) {
       setCartItems(cartItems.filter((x) => x.id !== product.id));
     } else
