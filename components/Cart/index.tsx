@@ -52,7 +52,9 @@ const Cart: React.FC<Props> = ({cartItems, setCartVisibility, setCartItems}) => 
         <div className="border h-24 flex">
           <div
             className="self-center px-lg cursor-pointer"
-            onClick={() => console.log(`Now you don't got money, `, cartItems)}
+            onClick={() =>
+              console.log(`Now you don't got any money, total is  $${itemsPrice}`, cartItems)
+            }
           >
             <Image alt="Checkout" src={checkout} />
           </div>

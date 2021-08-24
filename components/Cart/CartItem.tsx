@@ -11,16 +11,15 @@ interface Props {
 
 const CartItem: React.FC<Props> = ({product, cartItems, setCartItems}) => {
   const handleRemove = () => {
-    const exist = cartItems.find((x) => x.id === product.id);
-
-    console.log(exist);
+    const exist: any = cartItems.find((x) => x.id === product.id);
 
     if (exist?.qty === 1) {
       setCartItems(cartItems.filter((x) => x.id !== product.id));
-    } else
+    } else {
       setCartItems(
-        cartItems.map((x) => (x.id === product.id ? {...exist, qty: exist?.qty ?? -1} : x)),
+        cartItems.map((x) => (x.id === product.id ? {...exist, qty: exist.qty - 1} : x)),
       );
+    }
   };
 
   return (
