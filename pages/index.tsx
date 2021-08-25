@@ -2,8 +2,6 @@ import type {NextPage} from "next";
 import Image from "next/image";
 import {useState} from "react";
 
-import {Product} from "../product/types";
-
 import data from "product/mock.json";
 import Cart from "components/Cart";
 import addToCart from "@assets/addtocard.svg";
@@ -60,12 +58,6 @@ const Home: NextPage = () => {
           <Image alt="Basement Supply" src={hero} />
         </div>
         {/* Rolling Banner Section */}
-        {/* <div className="border-t-2 border-b-2 py-md mb-24 mt-12 max-h-16 flex justify-around">
-          <p className="animate-ticker flex justify-center text-3xl font-bold px-md w-full whitespace-nowrap">
-            A man can't have enough basement. swag
-          <div className="container h-0 w-8 mx-3 border-4 self-center "></div> 
-          </p>
-        </div> */}
         <div className="border-t-2 border-b-2 py-md mb-24 mt-12 max-h-16 flex justify-around whitespace-nowrap overflow-hidden">
           <p id="ticker" className="animate-ticker flex justify-center text-3xl font-bold px-md w-full">
             {"A man can't have enough basement. swag  "}
