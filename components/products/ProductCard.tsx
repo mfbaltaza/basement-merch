@@ -1,9 +1,13 @@
+import Image from "next/image";
+
 import {Product} from "../../product/types";
+
+import addToCart from "@assets/addtocard.svg";
 
 interface Props {
   product: Product;
   cartItems: Product[];
-  setCartItems: any;
+  setCartItems: (x: any[]) => void;
 }
 
 const ProductCard: React.FC<Props> = ({product, cartItems, setCartItems}) => {
@@ -24,7 +28,7 @@ const ProductCard: React.FC<Props> = ({product, cartItems, setCartItems}) => {
   return (
     <div className="product-3" onClick={handleClick}>
       <div className="cursor-pointer group relative bg-gradient-to-b from-black to-newDark border-b-4 min-width-xs max-w-lg">
-        <Image alt="Basement Cap" src={cap} />
+        <Image alt="Basement Cap" src={product.image} />
         <div className="opacity-0 group-hover:opacity-100 absolute bottom-56 right-7 sm:left-1/4 ">
           <Image alt="Add To Cart" src={addToCart} />
         </div>
