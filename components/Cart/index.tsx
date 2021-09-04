@@ -16,15 +16,22 @@ interface Props {
 const Cart: React.FC<Props> = ({cartItems, setCartVisibility, setCartItems}) => {
   const itemsPrice = cartItems.reduce((a, c) => a + c.price * c.qty, 0);
 
+  const handleClose = () => {
+    document.body.style.overflow = "auto";
+    setCartVisibility(false);
+  };
+
   return (
     <div className="bg-smoke-darkest bg-opacity-50 z-50 absolute inset-0 flex justify-end">
       <div className="bg-smoke-darkest h-modal max-w-xl max-h-96 flex flex-wrap justify-end mr-4 items-end overflow-scroll">
         <div className="pt-md pb-md">
-          <p className="font-bold text-2xl cursor-pointer" onClick={() => setCartVisibility(false)}>
+          <p className="font-bold text-2xl cursor-pointer" onClick={handleClose}>
             CLOSE
           </p>
         </div>
-        <Image alt="Your Cart" src={yourcartlarge} />
+        <div className="mb-6">
+          <Image alt="Your Cart" src={yourcartlarge} />
+        </div>
         {cartItems.length === 0 && <p className="text-4xl">Cart is Empty</p>}
         {cartItems.map((product) => (
           <CartItem

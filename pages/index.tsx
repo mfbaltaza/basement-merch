@@ -17,6 +17,11 @@ import cap from "@assets/products/cap.png";
 /* eslint-disable */
 
 const Home: NextPage = () => {
+  const handleCartClick = () => {
+    document.body.style.overflow = "hidden";
+    setCartVisibility(true);
+  }
+
   const [cartItems, setCartItems] = useState([{
     "id": "black-tshirt",
     "image": "/products/shirt.png",
@@ -48,7 +53,7 @@ const Home: NextPage = () => {
           <Image alt="High Definition" src={hd4k} />
         </div>
         <button className="border-2 h-max rounded-full px-lg py-xs"
-                onClick={() => setCartVisibility(true)}>
+                onClick={handleCartClick}>
                   Cart ({cartItems.length})
         </button>
       </nav>
