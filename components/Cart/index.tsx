@@ -41,17 +41,6 @@ const Cart: React.FC<Props> = ({cartItems, setCartVisibility, setCartItems}) => 
             setCartItems={setCartItems}
           />
         ))}
-        {/* <div>
-          {products.map((product) => (
-            <Image
-              key={product.id}
-              alt={product.name}
-              height="410"
-              src={product.image}
-              width="311"
-            />
-          ))}
-        </div> */}
         <div className="border h-24 flex">
           <h3 className="text-3xl font-bold self-center ml-8 mr-8">{`TOTAL: $${itemsPrice}`}</h3>
         </div>
