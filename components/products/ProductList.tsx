@@ -10,7 +10,7 @@ interface Props {
 
 const ProductList: React.FC<Props> = ({products, cartItems, setCartItems}) => {
   return (
-    <div className="w-auto mx-8 flex flex-col md:flex-row gap-x-8 mb-12 flex-grow">
+    <div className="w-auto mx-8 flex flex-col md:flex-row gap-x-8 mb-12 flex-grow justify-center">
       {products.length === 0 && <p className="text-4xl">Cart is Empty</p>}
       {products.map((product: SProduct) => (
         <ProductCard

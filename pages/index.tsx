@@ -60,7 +60,7 @@ const Home: NextPage = () => {
       </nav>
       <main>
         {/* Hero Section */}
-        <div className="w-auto mx-8 my-11">
+        <div className="w-auto mx-8 my-11 flex justify-center">
           <Image alt="Basement Supply" src={hero} />
         </div>
         {/* Rolling Banner Section */}
@@ -77,7 +77,7 @@ const Home: NextPage = () => {
         <section>
           <ProductList cartItems={cartItems} setCartItems={setCartItems} products={products}></ProductList>
         </section>
-        <footer className="mx-8 mb-8 flex">
+        <footer className="mx-8 mb-8 flex justify-center">
           <Image alt="Wear Everyday" src={footer} />
         </footer>
       </main>
