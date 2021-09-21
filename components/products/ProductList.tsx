@@ -1,18 +1,18 @@
-import {Product} from "../../product/types";
+import {Product, SProduct} from "../../product/types";
 
 import ProductCard from "./ProductCard";
 
 interface Props {
-  products: Product[];
+  products: SProduct[];
   cartItems: Product[];
   setCartItems: (x: any[]) => void;
 }
 
 const ProductList: React.FC<Props> = ({products, cartItems, setCartItems}) => {
   return (
-    <div>
+    <div className="w-auto mx-8 flex flex-col md:flex-row gap-x-8 mb-12 flex-grow">
       {products.length === 0 && <p className="text-4xl">Cart is Empty</p>}
-      {products.map((product: Product) => (
+      {products.map((product: SProduct) => (
         <ProductCard
           key={product.id}
           cartItems={cartItems}

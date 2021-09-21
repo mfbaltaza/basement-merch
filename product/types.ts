@@ -12,6 +12,14 @@ export interface Product {
   options: Option[];
   qty: number;
 }
+export interface SProduct {
+  id: string;
+  image: string;
+  description: string;
+  price: number;
+  name: string;
+  options: Option[];
+}
 
 export interface TProduct {
   id: string;
