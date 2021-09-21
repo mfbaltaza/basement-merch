@@ -13,10 +13,16 @@ import footer from "@assets/footer.svg";
 import shirt from "@assets/products/shirt.png";
 import hoodie from "@assets/products/hoodie.png";
 import cap from "@assets/products/cap.png";
+import ProductList from "components/products/ProductList";
 
 /* eslint-disable */
 
 const Home: NextPage = () => {
+  const handleCartClick = () => {
+    document.body.style.overflow = "hidden";
+    setCartVisibility(true);
+  }
+
   const [cartItems, setCartItems] = useState([{
     "id": "black-tshirt",
     "image": "/products/shirt.png",
@@ -48,13 +54,13 @@ const Home: NextPage = () => {
           <Image alt="High Definition" src={hd4k} />
         </div>
         <button className="border-2 h-max rounded-full px-lg py-xs"
-                onClick={() => setCartVisibility(true)}>
+                onClick={handleCartClick}>
                   Cart ({cartItems.length})
         </button>
       </nav>
       <main>
         {/* Hero Section */}
-        <div className="w-auto mx-8 my-11">
+        <div className="w-auto mx-8 my-11 flex justify-center">
           <Image alt="Basement Supply" src={hero} />
         </div>
         {/* Rolling Banner Section */}
@@ -68,60 +74,10 @@ const Home: NextPage = () => {
       </div>
         
         {/* Products Section */}
-        <section className="w-auto mx-8 flex flex-col md:flex-row gap-x-8 mb-12 flex-grow">
-          <div className="product-1" onClick={() => {
-            const exist = cartItems.find(x => x.id === products[0].id)
-            if (exist) {
-              setCartItems(cartItems.map((x) => x.id === products[0].id ? {...exist, qty: exist.qty +1} : x))
-            } else { setCartItems([...cartItems, {...products[0], qty: 1}]) }
-          }}>
-            <div className="cursor-pointer group bg-gradient-to-b from-black to-newDark border-b-4 min-width-xs max-w-lg relative">
-              <Image alt="Basement Shirt" src={shirt} />
-              <div className="opacity-0 group-hover:opacity-100 absolute bottom-56 right-7 sm:left-1/4 ">
-                <Image alt="Add To Cart" src={addToCart} />
-              </div>
-            </div>
-            <div className="flex justify-between py-sm text-center">
-              <p className="text-xl font-bold">{`${products[0].name}`}</p>
-              <p className="text-xl font-bold">{`$${products[0].price}`}</p>
-            </div>
-          </div>
-          <div className="product-2" onClick={() => {
-          const exist = cartItems.find(x => x.id === products[1].id)
-          if (exist) {
-            setCartItems(cartItems.map((x) => x.id === products[1].id ? {...exist, qty: exist.qty +1} : x))
-          } else { setCartItems([...cartItems, {...products[1], qty: 1}]) }
-        }}>
-            <div className="cursor-pointer group relative bg-gradient-to-b from-black to-newDark border-b-4 min-width-xs max-w-lg">
-              <Image alt="Basement Hoodie" src={hoodie} />
-              <div className="opacity-0 group-hover:opacity-100 absolute bottom-56 right-7 sm:left-1/4 ">
-                <Image alt="Add To Cart" src={addToCart} />
-              </div>
-            </div>
-            <div className="flex justify-between py-sm text-center">
-              <p className="text-xl font-bold">{`${products[1].name}`}</p>
-              <p className="text-xl font-bold">{`$${products[1].price}`}</p>
-            </div>
-          </div>
-          <div className="product-3" onClick={() => {
-            const exist = cartItems.find(x => x.id === products[2].id)
-            if (exist) {
-              setCartItems(cartItems.map((x) => x.id === products[2].id ? {...exist, qty: exist.qty +1} : x))
-            } else { setCartItems([...cartItems, {...products[2], qty: 1}]) }
-          }}>
-            <div className="cursor-pointer group relative bg-gradient-to-b from-black to-newDark border-b-4 min-width-xs max-w-lg">
-              <Image alt="Basement Cap" src={cap} />
-              <div className="opacity-0 group-hover:opacity-100 absolute bottom-56 right-7 sm:left-1/4 ">
-                <Image alt="Add To Cart" src={addToCart} />
-              </div>
-            </div>
-            <div className="flex justify-between py-sm text-center">
-              <p className="text-xl font-bold">{`${products[2].name}`}</p>
-              <p className="text-xl font-bold">{`$${products[2].price}`}</p>
-            </div>
-          </div>
+        <section>
+          <ProductList cartItems={cartItems} setCartItems={setCartItems} products={products}></ProductList>
         </section>
-        <footer className="mx-8 mb-8 flex">
+        <footer className="mx-8 mb-8 flex justify-center">
           <Image alt="Wear Everyday" src={footer} />
         </footer>
       </main>
