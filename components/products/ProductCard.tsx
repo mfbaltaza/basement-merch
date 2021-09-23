@@ -28,7 +28,7 @@ const ProductCard: React.FC<Props> = ({product, cartItems, setCartItems}) => {
     >
       <div className="cursor-pointer group relative bg-gradient-to-b from-black to-newDark border-b-4 min-width-xs max-w-lg">
         <Image alt="Basement Cap" height="700" src={product.image} width="500" />
-        <div className="opacity-0 group-hover:opacity-100 absolute bottom-48 md:bottom-72 left-14 md:left-24">
+        <div className="opacity-0 group-hover:opacity-100 absolute bottom-2/4 left-1/4">
           <Image alt="Add To Cart" src={addToCart} />
         </div>
       </div>
