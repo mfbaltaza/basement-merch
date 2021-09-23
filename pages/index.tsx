@@ -4,15 +4,11 @@ import {useState} from "react";
 
 import data from "product/mock.json";
 import Cart from "components/Cart";
-import addToCart from "@assets/addtocard.svg";
 import logo from "@assets/logo.svg";
 import altlogo from "@assets/altlogo.svg";
 import hero from "@assets/header.svg";
 import hd4k from "@assets/hd-4k.svg";
 import footer from "@assets/footer.svg";
-import shirt from "@assets/products/shirt.png";
-import hoodie from "@assets/products/hoodie.png";
-import cap from "@assets/products/cap.png";
 import ProductList from "components/products/ProductList";
 
 /* eslint-disable */
