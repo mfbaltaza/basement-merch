@@ -51,7 +51,7 @@ const Home: NextPage = () => {
         </div>
         <button className="border-2 h-max rounded-full px-lg py-xs"
                 onClick={handleCartClick}>
-                  Cart ({cartItems.length})
+                  CART ({cartItems.length})
         </button>
       </nav>
       <main>
