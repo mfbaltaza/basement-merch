@@ -41,7 +41,7 @@ const CartItem: React.FC<Props> = ({product, cartItems, setCartItems}) => {
         <Image alt="Basement Shirt" height="218" src={product.image} width="500" />
         <div className="flex flex-col">
           <p className="text-3xl font-bold">{product.name}</p>
-          <p className="text-2xl font-bold">{product.description}</p>
+          <p className="text-gray-sub text-2xl font-bold">{product.description}</p>
           <div className="flex flex-col">
             <div className="font-bold px-md w-20 mt-20 mb-5">
               <div className="m-auto">

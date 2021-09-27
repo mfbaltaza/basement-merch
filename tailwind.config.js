@@ -14,6 +14,7 @@ module.exports = {
       "smoke-light": "rgba(0, 0, 0, 0.4)",
       "smoke-lighter": "rgba(0, 0, 0, 0.25)",
       "smoke-lightest": "rgba(0, 0, 0, 0.1)",
+      "gray-sub": "rgba(153, 153, 153, 1)",
     },
     padding: {
       xs: "4px",
