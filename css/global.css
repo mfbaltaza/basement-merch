@@ -29,3 +29,20 @@ a {
 #ticker {
   animation-delay: -40s;
 }
+
+/* Scroll Bar */
+
+::-webkit-scrollbar {
+  width: 0.6rem;
+  background-color: rgba(153, 153, 153, 1);
+  border-radius: 0.5rem;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: rgba(0, 0, 0, 0.75);
+  border-radius: 0.5rem;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background-color: rgba(0, 0, 0, 0.4);
+}
