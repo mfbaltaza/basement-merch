@@ -24,9 +24,9 @@ const Cart: React.FC<Props> = ({cartItems, setCartVisibility, setCartItems}) => 
   return (
     <div className="bg-smoke-darkest bg-opacity-50 z-50 absolute inset-0 flex justify-end">
       <div className="md:border-b md:border-l bg-smoke-darkest h-modal max-w-full md:max-w-xl max-h-full md:max-h-96 flex flex-wrap justify-end items-end overflow-x-hidden overflow-scroll">
-        <div className="pt-md pb-md">
+        <div className="pt-md pb-md mx-4">
           <p className="font-bold text-2xl cursor-pointer" onClick={handleClose}>
-            CLOSE
+            → CLOSE
           </p>
         </div>
         <div className="mb-6 mx-4">
