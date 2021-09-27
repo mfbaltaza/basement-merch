@@ -46,7 +46,7 @@ const CartItem: React.FC<Props> = ({product, cartItems, setCartItems}) => {
             <div className="font-bold px-md w-20 mt-20 mb-5">
               <div className="m-auto">
                 <p className="text-2xl">Quantity: </p>
-                <div className="border rounded-full p-md min-w-max">
+                <div className="border rounded-full px-md py-sm min-w-max">
                   <button onClick={handleRemove}>-</button> {`${product.qty} `}
                   <button onClick={handleAdd}>+</button>
                 </div>
