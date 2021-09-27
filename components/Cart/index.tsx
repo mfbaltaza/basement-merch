@@ -23,7 +23,7 @@ const Cart: React.FC<Props> = ({cartItems, setCartVisibility, setCartItems}) => 
 
   return (
     <div className="bg-smoke-darkest bg-opacity-50 z-50 absolute inset-0 flex justify-end">
-      <div className="border-b border-l bg-smoke-darkest h-modal max-w-xl max-h-96 flex flex-wrap justify-end mr-4 items-end overflow-x-hidden overflow-scroll">
+      <div className="border-b md:border-l bg-smoke-darkest h-modal max-w-full md:max-w-xl max-h-full md:max-h-96 flex flex-wrap justify-end items-end overflow-x-hidden overflow-scroll">
         <div className="pt-md pb-md">
           <p className="font-bold text-2xl cursor-pointer" onClick={handleClose}>
             CLOSE
