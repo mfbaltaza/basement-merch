@@ -36,7 +36,7 @@ const CartItem: React.FC<Props> = ({product, cartItems, setCartItems}) => {
   const productTotalPrice = product.price * product.qty;
 
   return (
-    <div className="w-full min-h-full flex border">
+    <div className="w-full md:min-h-full flex border">
       <div className="w-full min-h-full flex">
         <Image alt="Basement Shirt" height="218" src={product.image} width="500" />
         <div className="flex flex-col">
