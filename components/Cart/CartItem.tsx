@@ -36,8 +36,8 @@ const CartItem: React.FC<Props> = ({product, cartItems, setCartItems}) => {
   const productTotalPrice = product.price * product.qty;
 
   return (
-    <div className="w-full md:min-h-full flex border">
-      <div className="w-full min-h-full flex">
+    <div className="w-full md:min-h-full flex border mb-6 mx-4">
+      <div className="w-full min-h-full flex mt-2">
         <Image alt="Basement Shirt" height="218" src={product.image} width="500" />
         <div className="flex flex-col">
           <p className="text-3xl font-bold">{product.name}</p>
@@ -52,7 +52,7 @@ const CartItem: React.FC<Props> = ({product, cartItems, setCartItems}) => {
                 </div>
               </div>
             </div>
-            <p className="text-5xl self-end mr-3">${productTotalPrice.toFixed(2)}</p>
+            <p className="text-5xl self-end mr-3 mb-2 md:mb-0">${productTotalPrice.toFixed(2)}</p>
           </div>
         </div>
       </div>

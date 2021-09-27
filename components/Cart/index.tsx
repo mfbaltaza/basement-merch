@@ -29,7 +29,7 @@ const Cart: React.FC<Props> = ({cartItems, setCartVisibility, setCartItems}) => 
             CLOSE
           </p>
         </div>
-        <div className="mb-6">
+        <div className="mb-6 mx-4">
           <Image alt="Your Cart" src={yourcartlarge} />
         </div>
         {cartItems.length === 0 && <p className="text-4xl">Cart is Empty</p>}
