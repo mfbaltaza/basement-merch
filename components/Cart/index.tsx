@@ -42,7 +42,9 @@ const Cart: React.FC<Props> = ({cartItems, setCartVisibility, setCartItems}) => 
           />
         ))}
         <div className="border h-24 flex">
-          <h3 className="text-3xl font-bold self-center ml-8 mr-8">{`TOTAL: $${itemsPrice}`}</h3>
+          <h3 className="text-3xl font-bold self-center ml-8 mr-8">{`TOTAL: $${itemsPrice.toFixed(
+            2,
+          )}`}</h3>
         </div>
         <div className="border h-24 flex">
           <div
