@@ -41,19 +41,21 @@ const Cart: React.FC<Props> = ({cartItems, setCartVisibility, setCartItems}) => 
             setCartItems={setCartItems}
           />
         ))}
-        <div className="border-b md:border-t md:border-b-0 h-24 flex m-auto md:m-0">
-          <h3 className="text-3xl font-bold self-center ml-8 mr-8">{`TOTAL: $${itemsPrice.toFixed(
-            2,
-          )}`}</h3>
-        </div>
-        <div className="md:border md:border-b-0 h-24 flex m-auto md:m-0">
-          <div
-            className="self-center px-lg cursor-pointer"
-            onClick={() =>
-              console.log(`Now you don't got any money, total is  $${itemsPrice}`, cartItems)
-            }
-          >
-            <Image alt="Checkout" src={checkout} />
+        <div className="flex">
+          <div className="border-b md:border-t md:border-b-0 h-24 flex m-auto md:m-0">
+            <h3 className="text-3xl font-bold self-center ml-8 mr-8">{`TOTAL: $${itemsPrice.toFixed(
+              2,
+            )}`}</h3>
+          </div>
+          <div className="md:border md:border-b-0 h-24 flex m-auto md:m-0">
+            <div
+              className="self-center px-lg cursor-pointer"
+              onClick={() =>
+                console.log(`Now you don't got any money, total is  $${itemsPrice}`, cartItems)
+              }
+            >
+              <Image alt="Checkout" src={checkout} />
+            </div>
           </div>
         </div>
       </div>
