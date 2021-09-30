@@ -41,9 +41,9 @@ const Cart: React.FC<Props> = ({cartItems, setCartVisibility, setCartItems}) => 
             setCartItems={setCartItems}
           />
         ))}
-        <div className="flex">
+        <div className="flex flex-col md:flex-row md:m-0 m-auto">
           <div className="border-b md:border-t md:border-b-0 h-24 flex m-auto md:m-0">
-            <h3 className="text-3xl font-bold self-center ml-8 mr-8">{`TOTAL: $${itemsPrice.toFixed(
+            <h3 className="text-3xl font-bold self-center m-auto md:ml-8 md:mr-8">{`TOTAL: $${itemsPrice.toFixed(
               2,
             )}`}</h3>
           </div>
