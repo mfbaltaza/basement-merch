@@ -11,8 +11,6 @@ import hd4k from "@assets/hd-4k.svg";
 import footer from "@assets/footer.svg";
 import ProductList from "components/products/ProductList";
 
-/* eslint-disable */
-
 const Home: NextPage = () => {
   const handleCartClick = () => {
     document.body.style.overflow = "hidden";
