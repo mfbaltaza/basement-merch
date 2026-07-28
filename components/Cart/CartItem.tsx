@@ -1,59 +1,57 @@
 import Image from "next/legacy/image";
 
-import {Product} from "../../product/types";
+import {CartItem as CartItemType} from "../../product/types";
 
 interface Props {
-  product: Product;
-  cartItems: Product[];
-  setCartItems: any;
+  item: CartItemType;
+  onIncrement: () => void;
+  onRemove: () => void;
+  onSizeChange: (size: string) => void;
 }
 
-const CartItem: React.FC<Props> = ({product, cartItems, setCartItems}) => {
-  const handleRemove = () => {
-    const exist: any = cartItems.find((x) => x.id === product.id);
-
-    if (exist?.qty === 1) {
-      setCartItems(cartItems.filter((x) => x.id !== product.id));
-    } else {
-      setCartItems(
-        cartItems.map((x) => (x.id === product.id ? {...exist, qty: exist.qty - 1} : x)),
-      );
-    }
-  };
-
-  const handleAdd = () => {
-    const exist = cartItems.find((x) => x.id === product.id);
-
-    if (exist) {
-      setCartItems(
-        cartItems.map((x) => (x.id === product.id ? {...exist, qty: exist.qty + 1} : x)),
-      );
-    } else {
-      setCartItems([...cartItems, {...product, qty: 1}]);
-    }
-  };
-
-  const productTotalPrice = product.price * product.qty;
+const CartItem: React.FC<Props> = ({item, onIncrement, onRemove, onSizeChange}) => {
+  const productTotalPrice = item.price * item.qty;
+  const sizeOption = item.options.find((option) => option.label === "size");
 
   return (
-    <div className="w-full md:min-h-full flex border mb-6 mx-4">
-      <div className="w-full min-h-full flex mt-2">
-        <Image alt="Basement Shirt" height="218" src={product.image} width="500" />
-        <div className="flex flex-col">
-          <p className="text-3xl font-bold">{product.name}</p>
-          <p className="text-gray-sub text-2xl font-bold">{product.description}</p>
-          <div className="flex flex-col">
-            <div className="font-bold px-md w-20 mt-20 mb-5">
-              <div className="m-auto">
-                <p className="text-2xl">Quantity: </p>
-                <div className="border rounded-full px-md py-sm min-w-max">
-                  <button onClick={handleRemove}>-</button> {`${product.qty} `}
-                  <button onClick={handleAdd}>+</button>
-                </div>
-              </div>
+    <div className="border flex gap-4 p-sm md:p-md">
+      <div className="relative w-28 h-32 md:w-56 md:h-56 shrink-0">
+        <Image alt={item.name} layout="fill" objectFit="cover" src={item.image} />
+      </div>
+      <div className="flex-1 flex flex-col">
+        <p className="text-2xl md:text-3xl font-bold uppercase">{item.name}</p>
+        <p className="text-gray-sub text-lg md:text-2xl font-bold">{item.description}</p>
+        <div className="mt-auto pt-sm flex flex-col gap-2">
+          <div className="flex items-center gap-2">
+            <p className="text-lg font-bold uppercase">Quantity:</p>
+            <div className="border rounded-full px-md py-xs flex items-center gap-4 leading-none">
+              <button className="font-bold" type="button" onClick={onRemove}>
+                −
+              </button>
+              <span className="w-4 text-center font-bold">{item.qty}</span>
+              <button className="font-bold" type="button" onClick={onIncrement}>
+                +
+              </button>
             </div>
-            <p className="text-5xl self-end mr-3 mb-2 md:mb-0">${productTotalPrice.toFixed(2)}</p>
           </div>
+          {sizeOption && (
+            <div className="flex items-center gap-2">
+              <p className="text-lg font-bold uppercase">{sizeOption.label}:</p>
+              {sizeOption.values.map((value) => (
+                <button
+                  key={value}
+                  className={`w-8 h-8 rounded-full text-sm font-bold flex items-center justify-center ${
+                    item.size === value ? "border-2" : "text-gray-sub"
+                  }`}
+                  type="button"
+                  onClick={() => onSizeChange(value)}
+                >
+                  {value}
+                </button>
+              ))}
+            </div>
+          )}
+          <p className="self-end text-3xl md:text-4xl font-bold">${productTotalPrice.toFixed(2)}</p>
         </div>
       </div>
     </div>

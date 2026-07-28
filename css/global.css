@@ -26,10 +26,6 @@ a {
   box-sizing: border-box;
 }
 
-#ticker {
-  animation-delay: -40s;
-}
-
 /* Scroll Bar */
 
 ::-webkit-scrollbar {

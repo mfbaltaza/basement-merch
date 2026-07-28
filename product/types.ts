@@ -10,23 +10,9 @@ export interface Product {
   price: number;
   name: string;
   options: Option[];
-  qty: number;
-}
-export interface SProduct {
-  id: string;
-  image: string;
-  description: string;
-  price: number;
-  name: string;
-  options: Option[];
 }
 
-export interface TProduct {
-  id: string;
-  image: string;
-  description: string;
-  price: number;
-  name: string;
-  options: Option[];
+export interface CartItem extends Product {
   qty: number;
+  size: string;
 }

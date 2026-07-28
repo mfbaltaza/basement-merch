@@ -24,30 +24,28 @@ module.exports = {
       xl: "48px",
       modal: "211px",
     },
-    animation: {
-      "spin-slow": "spin 12s linear infinite",
-      ticker: "ticker 40s linear infinite",
-      ticker2: "ticker2 40s linear infinite",
-    },
-    keyframes: {
-      ticker: {
-        "0%": {
-          transform: "translateX(100%)",
+    extend: {
+      animation: {
+        marquee: "marquee 30s linear infinite",
+        pop: "pop 0.35s ease-out",
+        bump: "bump 0.3s ease-in-out",
+      },
+      keyframes: {
+        marquee: {
+          "0%": {transform: "translate3d(0,0,0)"},
+          "100%": {transform: "translate3d(-50%,0,0)"},
         },
-        "100%": {
-          transform: "translateX(-100%)",
+        pop: {
+          "0%": {transform: "scale(0.6)", opacity: "0"},
+          "60%": {transform: "scale(1.08)"},
+          "100%": {transform: "scale(1)", opacity: "1"},
+        },
+        bump: {
+          "0%, 100%": {transform: "scale(1)"},
+          "40%": {transform: "scale(1.15)"},
         },
       },
-      ticker2: {
-        "0%": {
-          transform: "translateX(0)",
-        },
-        "100%": {
-          transform: "translateX(-200%)",
-        },
-      },
     },
-    extend: {},
   },
   variants: {
     extend: {},
